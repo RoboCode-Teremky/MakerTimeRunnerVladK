@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571336, b: 0.3069219, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -396,13 +396,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1418411303}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 282b1bc46afca894ebba2d0381284c66, type: 3}
+  m_Script: {fileID: 11500000, guid: e1a45a23d251f4713acd0c4a001be6f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   leftEdge: {fileID: 1563112595}
   rightEdge: {fileID: 489058262}
-  sensitivity: 1
-  fireballPrefab: {fileID: 2473281340012112787, guid: 3bc1eb8192ca8f84990aa0ebb35aaf62, type: 3}
+  sensitivity: 0.1
+  fireballPrefab: {fileID: 2473281340012112787, guid: 8e9011b966c1345e68cf6330683f7cda, type: 3}
 --- !u!136 &1418411305
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -482,6 +482,51 @@ Transform:
   m_Father: {fileID: 714280317}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1547897670
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1547897671}
+  - component: {fileID: 1547897672}
+  m_Layer: 0
+  m_Name: Map
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1547897671
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1547897670}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1547897672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1547897670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed325b89f383e467dbb9f160eff318d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
 --- !u!1 &1563112594
 GameObject:
   m_ObjectHideFlags: 0
@@ -539,11 +584,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1880955773}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea8adb41d82649441a60c4f9243126bb, type: 3}
+  m_Script: {fileID: 11500000, guid: 010bf19852d044df59826715c73df3f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Panels:
-  - {fileID: 1122791748528519639, guid: 70b1a080cb98aa842ad99524aa7aa82a, type: 3}
+  - {fileID: 1122791748528519639, guid: 0323453bc8b564e1e8737ef41c402aef, type: 3}
+  FinishPanel: {fileID: 4319618868432859872, guid: cbe4efa3dde554af4a6a3b7f1fa77cec, type: 3}
+  Map: {fileID: 1547897671}
 --- !u!4 &1880955775
 Transform:
   m_ObjectHideFlags: 0
