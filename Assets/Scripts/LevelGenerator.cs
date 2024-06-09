@@ -20,6 +20,7 @@ public class LevelGenerator : MonoBehaviour
 
     void Start()
     {
-       Generate(10);
+        Random.InitState(0);
+        Generate(PlayerPrefs.GetInt("PanelsNumber")*5);
     }
 }

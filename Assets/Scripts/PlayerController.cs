@@ -50,8 +50,8 @@ public class PlayerController : MonoBehaviour
     }
     void OnCollisionEnter(Collision other)
     {
-        Debug.Log(other.gameObject);
-        //if(other.gameObject.CompareTag("Obstacles")) 
-        if(!other.gameObject.CompareTag("FireBall")) SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        if(other.gameObject.CompareTag("Finish"))if(PlayerPrefs.GetInt("OpenLevels") == PlayerPrefs.GetInt("PanelsNumber"))PlayerPrefs.SetInt("OpenLevels", PlayerPrefs.GetInt("OpenLevels") + 1);
+        if(!other.gameObject.CompareTag("FireBall")) SceneManager.LoadScene(0);
+        
     }
 }
