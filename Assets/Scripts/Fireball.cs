@@ -5,7 +5,7 @@ using UnityEngine;
 public class Fireball : MonoBehaviour
 {
     private Rigidbody _rb;
-    public float speed;
+    [SerializeField]private float speed;
     void Awake(){
         _rb = GetComponent<Rigidbody>();
     }
@@ -15,6 +15,7 @@ public class Fireball : MonoBehaviour
     }
     void OnCollisionEnter(Collision other)
     {
-        Destroy(gameObject);
+        if(!other.gameObject.CompareTag("Player")) Destroy(gameObject);
+        if(other.gameObject.CompareTag("DObstacles")) Destroy(other.gameObject);
     }
 }

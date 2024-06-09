@@ -10,16 +10,16 @@ public class LevelGenerator : MonoBehaviour
     public Transform Map;
 
     public void Generate(int PanelsCount){
+        LastPanel = Instantiate(Panels[0] , Map);
         for (int i = 0; i < PanelsCount; i++)
             {
-                if(LastPanel != null) LastPanel = Instantiate(Panels[Random.Range(0, Panels.Length)] , LastPanel.transform.Find("NextPanelGeneratorPoint").position , Quaternion.identity, Map); //Доробити генерацію на точці
-                else LastPanel = Instantiate(Panels[Random.Range(0, Panels.Length)],Map);
+                LastPanel = Instantiate(Panels[Random.Range(1, Panels.Length)] , LastPanel.transform.Find("NextPanelGeneratorPoint").position , Quaternion.identity, Map); //Доробити генерацію на точці
             }
         Instantiate(FinishPanel, LastPanel.transform.Find("NextPanelGeneratorPoint").position , Quaternion.identity, Map);
     }
 
     void Start()
     {
-       Generate(2);
+       Generate(10);
     }
 }

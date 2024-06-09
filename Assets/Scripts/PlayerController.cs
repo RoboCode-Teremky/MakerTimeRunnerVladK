@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -46,5 +47,11 @@ public class PlayerController : MonoBehaviour
         if(Physics.Raycast(ray, out RaycastHit hit)){
             Instantiate(fireballPrefab, transform.position, Quaternion.LookRotation(hit.point-transform.position,Vector3.up));
         }
+    }
+    void OnCollisionEnter(Collision other)
+    {
+        Debug.Log(other.gameObject);
+        //if(other.gameObject.CompareTag("Obstacles")) 
+        if(!other.gameObject.CompareTag("FireBall")) SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
