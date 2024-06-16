@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571336, b: 0.3069219, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -441,10 +441,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 739212762}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d134d0d36ac4b34d9d46fae57acf08e, type: 3}
+  m_Script: {fileID: 11500000, guid: 95ad28278223e492fbf982a9aea21432, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonPrefab: {fileID: 2440111151698923916, guid: f5d21ff7ebffb0048bc756aef2a328f2, type: 3}
+  ButtonPrefab: {fileID: 2440111151698923916, guid: 986599cb8a6734c5ba7d98f1c4179b70, type: 3}
   Content: {fileID: 289835195}
 --- !u!1 &848441059
 GameObject:

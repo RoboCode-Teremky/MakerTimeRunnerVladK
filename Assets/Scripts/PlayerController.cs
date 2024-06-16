@@ -50,8 +50,10 @@ public class PlayerController : MonoBehaviour
     }
     void OnCollisionEnter(Collision other)
     {
+        if(!other.gameObject.CompareTag("FireBall"))Debug.Log(PlayerPrefs.GetInt("OpenLevels").ToString());
+        if(!other.gameObject.CompareTag("FireBall"))Debug.Log(PlayerPrefs.GetInt("PanelsNumber").ToString());
         if(other.gameObject.CompareTag("Finish"))if(PlayerPrefs.GetInt("OpenLevels") == PlayerPrefs.GetInt("PanelsNumber"))PlayerPrefs.SetInt("OpenLevels", PlayerPrefs.GetInt("OpenLevels") + 1);
         if(!other.gameObject.CompareTag("FireBall")) SceneManager.LoadScene(0);
-        
+        if(!other.gameObject.CompareTag("FireBall"))Debug.Log(PlayerPrefs.GetInt("OpenLevels").ToString());
     }
 }

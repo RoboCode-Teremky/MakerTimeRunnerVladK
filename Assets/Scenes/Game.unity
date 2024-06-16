@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571336, b: 0.3069219, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -608,8 +608,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Panels:
   - {fileID: 4035522997760286314, guid: 0323453bc8b564e1e8737ef41c402aef, type: 3}
-  - {fileID: 4035522997760286314, guid: e432fdc8f89ea584aba110b64f8fb063, type: 3}
-  - {fileID: 4035522997760286314, guid: 3fc047136dd0bc045a338ef2e74d7fa5, type: 3}
+  - {fileID: 4035522997760286314, guid: 51cd2f860faad4f97b8c5974e6ce60ab, type: 3}
+  - {fileID: 4035522997760286314, guid: 2153d39fa9f1345cc8402dcbe0477596, type: 3}
   FinishPanel: {fileID: 4265082705564348511, guid: cbe4efa3dde554af4a6a3b7f1fa77cec, type: 3}
   Map: {fileID: 1547897671}
 --- !u!4 &1880955775

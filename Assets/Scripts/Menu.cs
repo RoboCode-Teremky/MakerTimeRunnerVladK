@@ -14,9 +14,10 @@ public class Menu : MonoBehaviour
         if(!PlayerPrefs.HasKey("OpenLevels"))PlayerPrefs.SetInt("OpenLevels",1);
         for (int i = 1; i < PlayerPrefs.GetInt("OpenLevels") + 1; i++){
             button = Instantiate(ButtonPrefab , Content);
+            button.GetComponent<Button>().onClick.AddListener(()=>PlayerPrefs.SetInt("PanelsNumber",i));
             button.GetComponent<Button>().onClick.AddListener(()=>SceneManager.LoadScene(1));
             button.GetComponentInChildren<Text>().text = i.ToString();
-            PlayerPrefs.SetInt("PanelsNumber",i);
+            Debug.Log("" + i.ToString());
         }
     }
 }
