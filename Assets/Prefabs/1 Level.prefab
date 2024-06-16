@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2440111151698923904}
   - component: {fileID: 2440111151698923905}
   - component: {fileID: 2440111151698923906}
+  - component: {fileID: 3258311435523786374}
   m_Layer: 5
   m_Name: 1 Level
   m_TagString: Untagged
@@ -28,8 +29,8 @@ RectTransform:
   m_GameObject: {fileID: 2440111151698923916}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2440111152774976611}
   m_Father: {fileID: 0}
@@ -122,10 +123,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 3258311435523786374}
         m_TargetAssemblyTypeName: ButtonScript, Assembly-CSharp
-        m_MethodName: RunScene
-        m_Mode: 3
+        m_MethodName: ButtonPress
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -134,6 +135,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &3258311435523786374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2440111151698923916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b6e219ec64fd74297afb4572fd0f8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ButtonNumber: 0
 --- !u!1 &2440111152774976620
 GameObject:
   m_ObjectHideFlags: 0
@@ -202,10 +216,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 3
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
