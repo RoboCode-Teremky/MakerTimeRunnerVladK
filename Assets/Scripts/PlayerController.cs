@@ -24,6 +24,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject FinishPanel;
     [SerializeField] private Button OnMenu;
     [SerializeField] private Button RestartLevel;
+    [SerializeField] private GameObject PausePanel;
+    [SerializeField] private Button POnMenu;
+    [SerializeField] private Button Resume;
+    
     public int MaxCoin;
     private void OnEnable()
     {
@@ -40,10 +44,16 @@ public class PlayerController : MonoBehaviour
     }
     void Start()
     {
+        Time.timeScale = 1;
         playerInput.InGame.Movement.started += ChangeDirection;
         playerInput.InGame.Movement.canceled += ChangeDirection;
         playerInput.InGame.Shoot.started += Shoot;
         StartCoroutine(AddMana());
+        OnMenu.onClick.AddListener(()=>SceneManager.LoadScene(0));
+        RestartLevel.onClick.AddListener(()=>SceneManager.LoadScene(1));
+        POnMenu.onClick.AddListener(()=>SceneManager.LoadScene(0));
+        Resume.onClick.AddListener(()=>Time.timeScale = 1);
+         
     }
 
     void Update()
@@ -51,13 +61,14 @@ public class PlayerController : MonoBehaviour
         relativePosition = Mathf.Clamp(relativePosition += sensitivity * relativeDirection * Time.deltaTime, 0.0f, 1.0f);
         transform.position = Vector3.Lerp(leftEdge.position, rightEdge.position, relativePosition);
         slider.value = Mana;
+        coinText.text = "Монет: " + coin.ToString(); 
     }
 
     IEnumerator AddMana()
     {
         while (true)
         {
-            if (Mana <= 5f) Mana = Mana + 0.01f;
+            if (Mana <= 5f) Mana = Mana + 0.05f;
             yield return new WaitForSeconds(0.01f);
         }
     }
@@ -80,17 +91,35 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+
     void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.CompareTag("Finish")) if (PlayerPrefs.GetInt("OpenLevels") == PlayerPrefs.GetInt("PanelsNumber")) PlayerPrefs.SetInt("OpenLevels", PlayerPrefs.GetInt("OpenLevels") + 1);
-        if (!other.gameObject.CompareTag("FireBall") && !other.gameObject.CompareTag("Mana")) SceneManager.LoadScene(0);
+        if (other.gameObject.CompareTag("Finish"))FinishLevel(true);
+        if (!other.gameObject.CompareTag("FireBall") && !other.gameObject.CompareTag("Mana") && !other.gameObject.CompareTag("Coin") && !other.gameObject.CompareTag("Finish"))FinishLevel(false);
         if (other.gameObject.CompareTag("Mana")){
             Mana = 5f;
             Destroy(other.gameObject); 
         } 
         if (other.gameObject.CompareTag("Coin")){
             coin++;
-
+            Destroy(other.gameObject); 
         }
+    }
+
+    void FinishLevel(bool a){
+        FinishPanel.SetActive(true);
+        GamePanel.SetActive(false);
+        Time.timeScale = 0;
+        if(a){
+            if (PlayerPrefs.GetInt("OpenLevels") == PlayerPrefs.GetInt("PanelsNumber")) PlayerPrefs.SetInt("OpenLevels", PlayerPrefs.GetInt("OpenLevels") + 1);
+            if(coin >= MaxCoin*0.75f)FinalRezult.text = "Ти переміг";
+            else{
+                FinalRezult.text = "Ти програв";
+                LoseText.SetActive(true);
+            }
+        }else{
+        FinalRezult.text = "Ти програв";
+        }
+        FinalCoin.text = "У тебе " + coin.ToString() + " монет";
     }
 }

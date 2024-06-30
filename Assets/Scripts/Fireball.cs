@@ -15,7 +15,7 @@ public class Fireball : MonoBehaviour
     }
     void OnCollisionEnter(Collision other)
     {
-        if(!other.gameObject.CompareTag("Player")) Destroy(gameObject);
+        if(!other.gameObject.CompareTag("Player") && !other.gameObject.CompareTag("Mana") && !other.gameObject.CompareTag("Coin")) Destroy(gameObject);
         if(other.gameObject.CompareTag("DObstacles")) Destroy(other.gameObject);
     }
 }
