@@ -15,6 +15,16 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject fireballPrefab;
     private float Mana = 5f;
     [SerializeField] private Slider slider;
+    public int coin;
+    [SerializeField] private Text coinText;
+    [SerializeField] private Text FinalRezult;
+    [SerializeField] private Text FinalCoin;
+    [SerializeField] private GameObject LoseText;
+    [SerializeField] private GameObject GamePanel;
+    [SerializeField] private GameObject FinishPanel;
+    [SerializeField] private Button OnMenu;
+    [SerializeField] private Button RestartLevel;
+    public int MaxCoin;
     private void OnEnable()
     {
         playerInput.Enable();
@@ -73,6 +83,14 @@ public class PlayerController : MonoBehaviour
     void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.CompareTag("Finish")) if (PlayerPrefs.GetInt("OpenLevels") == PlayerPrefs.GetInt("PanelsNumber")) PlayerPrefs.SetInt("OpenLevels", PlayerPrefs.GetInt("OpenLevels") + 1);
-        if (!other.gameObject.CompareTag("FireBall")) SceneManager.LoadScene(0);
+        if (!other.gameObject.CompareTag("FireBall") && !other.gameObject.CompareTag("Mana")) SceneManager.LoadScene(0);
+        if (other.gameObject.CompareTag("Mana")){
+            Mana = 5f;
+            Destroy(other.gameObject); 
+        } 
+        if (other.gameObject.CompareTag("Coin")){
+            coin++;
+
+        }
     }
 }
